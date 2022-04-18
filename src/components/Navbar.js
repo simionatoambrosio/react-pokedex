@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import FavoriteContext from '../contexts/FavoritesContext'
 
 const Navbar = () => {
     const navbarLogo = 'https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png'
+    const {favoritePokemons} = useContext(FavoriteContext)
     return (
         <nav>
             <div>
@@ -10,6 +12,9 @@ const Navbar = () => {
                     src={navbarLogo}
                     className='navbar-img'>
                 </img>
+            </div>
+            <div>
+                {favoritePokemons.length}💖
             </div>
         </nav>
     )

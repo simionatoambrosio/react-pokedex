@@ -4,8 +4,9 @@ import './Searchbar.css'
 import {searchPokemon} from '../Api'
 import Pokemon from "./Pokemon";
 
-const Searchbar = () => {
+const Searchbar = (props) => {
     const [search, setSearch] = useState("")
+    const {onSearch} = props
     const [pokemon, setPokemon] = useState()
 
     const [display, setDisplay] = useState(false);
@@ -65,21 +66,24 @@ const Searchbar = () => {
     const setPokedex = poke => {
         setSearch(poke);
         setDisplay(false)
-        onSearchHandler(poke)
+        onSearch(poke)
     } 
 
     const onChangeHandler = (e) => {
         setSearch(e.target.value.toLowerCase())
+        if (e.target.value.length === 0) {
+            setSearch(undefined)
+        }
     }
 
     const onButtonClickHandler = () => {
-        onSearchHandler(search)
+        onSearch(search)
     }
 
-    const onSearchHandler = async (pokemon) => {
-        const result = await searchPokemon(pokemon)
-        setPokemon(result)
-    }
+    // const onSearchHandler = async (pokemon) => {
+    //     const result = await searchPokemon(pokemon)
+    //     setPokemon(result)
+    // }
 
 
 
@@ -114,31 +118,7 @@ const Searchbar = () => {
                     <button onClick={onButtonClickHandler}>Buscar</button>
                 </div>
             </div>
-            {pokemon ? (
-                <Pokemon pokemon={pokemon} />
-                // <div className='pokemon-card'>
-                //     <div className='pokemon-card-top'>
-                //         <div className='pokemon-name'>{pokemon.name}</div>
-                //         <div>#{pokemon.id}</div>
-                //     </div>
-                //     <div className='pokemon-card-bottom'>
-                //         <img alt={pokemon.name} src={pokemon.sprites.front_default} />
-                //         <div className='pokemon-types'>
-                //             {pokemon.types.map((type, index) => {
-                //                 let pokemon_type = `${pokemon.types[0].type.name}`
-                //                 return (
-                //                     <div key={index}>
-                //                         {/* <div className="pokemon-type-text">{type.type.name}</div> */}
-                //                         <div className={pokemon_type}>{type.type.name}</div>
-                //                     </div>
-                //                 )
-                //             })}
-                //         </div>
-                //     </div>
-                // </div>
 
-            ) : null}
-            {/* <div><p>Pokemon not found</p></div> */}
         </div>
 
     )
