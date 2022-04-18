@@ -1,0 +1,68 @@
+.searchbar-container {
+    display: flex;
+    margin: 0 auto;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.searchbar {
+    background-color: white;
+}
+
+.searchbar input {
+    padding: 10px;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.35); */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+
+.searchbar-btn button {
+    background-color: #0e6fff;
+    border: none;
+    border-radius: 10px;
+    max-height: 36px;
+    color: white;
+    padding: 10px 25px;
+    border: solid 1px #0e6fff;
+}
+
+.searchbar-btn button:hover {
+    background-color: #0e6f9f;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.pokemon {
+    text-transform: capitalize;
+}
+
+.autoContainer {
+    margin-top: -3px;
+    border: 1px solid #ccc;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: capitalize;
+    background-color: #f1f1f1;
+    text-indent: 10px;
+    width: 189px;
+}
+
+.option img {
+    max-width: 90px;
+}
+
+.option:hover {
+    background-color: #ccc;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px){
+    .searchbar-container {
+        justify-content: center;
+    }
+}
