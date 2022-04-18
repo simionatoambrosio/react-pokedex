@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import './Navbar.css'
 import FavoriteContext from '../contexts/FavoritesContext'
 
 const Navbar = () => {

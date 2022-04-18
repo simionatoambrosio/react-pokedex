@@ -11,18 +11,6 @@ body {
   margin: 1% 10%;
 }
 
-nav {
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar-img {
-  width: 160px;
-}
-
 .App {
   text-align: center;
 }
