@@ -24,6 +24,7 @@
     color: white;
     padding: 10px 25px;
     border: solid 1px #0e6fff;
+    cursor: pointer;
 }
 
 .searchbar-btn button:hover {

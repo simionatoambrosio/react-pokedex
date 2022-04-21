@@ -1,0 +1,20 @@
+.options-menu-container ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    padding: 0px;
+    justify-content: center;
+}
+
+.options-menu-container li {
+    margin: 2px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-menu-container button {
+    background-color: none;
+    padding: 5px 8px;
+    justify-content: center;
+    align-items: center;
+}

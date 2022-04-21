@@ -1,0 +1,16 @@
+.input-content {
+    text-transform: capitalize;
+    justify-content: center;
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-content label {
+    font-weight: bold;
+}
+
+.input-values {
+    display: flex;
+}

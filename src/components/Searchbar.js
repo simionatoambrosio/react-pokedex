@@ -70,14 +70,15 @@ const Searchbar = (props) => {
     } 
 
     const onChangeHandler = (e) => {
-        setSearch(e.target.value.toLowerCase())
+        setSearch(e.target.value)
         if (e.target.value.length === 0) {
-            setSearch(undefined)
+            onSearch(undefined)
         }
+        // console.log(search.length)
     }
 
-    const onButtonClickHandler = () => {
-        onSearch(search)
+    const onButtonClickHandler = async (e) => {
+        onSearch(search.toLowerCase())
     }
 
     // const onSearchHandler = async (pokemon) => {
@@ -92,13 +93,13 @@ const Searchbar = (props) => {
             <div ref={wrapperRef} className="searchbar-container">
                 <div className="searchbar">
                     <input 
-                    onClick={() => setDisplay(!display)} placeholder="Buscar pokemon" 
+                    onClick={() => setDisplay(!display)} placeholder="🔎 Search pokemon" 
                     onChange={onChangeHandler}
                     value={search}
                     />
                     {display && (
                         <div className="autoContainer" >
-                            {options.filter(({name}) => name.indexOf(search.toLowerCase()) > -1)
+                            {options.filter(({name}) => name.indexOf(search) > -1)
                             .map((v,i) => {
                                 return (
                                 <div onClick={() => setPokedex(v.name)} 

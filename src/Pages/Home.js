@@ -1,20 +1,14 @@
+import React from 'react'
+import Pokedex from '../components/Pokedex'
+import Searchbar from '../components/Searchbar'
 
 import { useEffect, useState } from 'react';
-import { getPokemonData, getPokemons, searchPokemon } from './Api';
-import './App.css';
-import Navbar from './components/Navbar';
-import Pokedex from './components/Pokedex';
-import Searchbar from './components/Searchbar';
-import FavoriteContext, { FavoriteProvider } from './contexts/FavoritesContext'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { getPokemonData, getPokemons, searchPokemon } from '../Api';
+import Navbar from '../components/Navbar';
+import { FavoriteProvider } from '../contexts/FavoritesContext';
+import OptionsMenu from '../components/OptionsMenu';
 
-import ErrorPage from './Pages/ErrorPage';
-import Favorites from './Pages/Favorites'
-import PokemonDetails from './Pages/PokemonDetails'
-import Home from './Pages/Home';
-import Footer from './components/Footer';
-
-function App() {
+function Home() {
   const [loading, setLoading] = useState(false)
   const [pokemons, setPokemons] = useState([])
 
@@ -25,18 +19,20 @@ function App() {
   const [page, setPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
 
-  const itensPerPage = 24
+  const [searching, setSearching] = useState(false);
+
+  const itensPerPage = 12
 
   const fetchPokemons = async () => {
     try {
       setLoading(true)
-      setNotFound(false)
       const data = await getPokemons(itensPerPage, itensPerPage * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url)
       });
-
       const results = await Promise.all(promises)
+      setNotFound(false)
+      setLoading(false)
       setPokemons(results);
       setLoading(false)
       setTotalPages(Math.ceil(data.count / itensPerPage))
@@ -49,8 +45,9 @@ function App() {
 
   useEffect(() => {
     //componente é iniciado
-    console.log('carregou')
-    fetchPokemons()
+    if (!searching) {
+      fetchPokemons()
+    }
     return () => {
       //componente é destruido
 
@@ -90,9 +87,12 @@ function App() {
     }
     setLoading(true)
     setNotFound(false)
+    setSearching(true)
     const result = await searchPokemon(pokemon)
     if (!result) {
       setNotFound(true)
+      setLoading(false)
+      return;
     }
     else {
       setPokemons([result])
@@ -100,24 +100,36 @@ function App() {
       setTotalPages(1)
     }
     setLoading(false)
+    setSearching(false)
   }
 
   return (
-    <div className='App'>
-      <FavoriteProvider
+    <div>
+      {/* <FavoriteProvider
         value={{ favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemons }}
-      >
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/details/:id" element={<PokemonDetails />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer />
-      </FavoriteProvider>
+      > */}
+      <Navbar />
+
+      <Searchbar onSearch={onSearchHandler} />
+      
+      {/* Need to fix it -> <OptionsMenu/> */}
+      {notFound ? (
+        <div>
+          {console.log('Pokemon não encontrado!')}
+          Pokemon não encontrado!
+        </div>
+      ) : (
+        <Pokedex
+          title="Pokedex"
+          pokemons={pokemons}
+          loading={loading}
+          page={page}
+          setPage={setPage}
+          totalPages={totalPages}
+        />)}
+      {/* </FavoriteProvider> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default Home

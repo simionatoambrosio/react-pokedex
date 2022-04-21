@@ -1,0 +1,66 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.profile-content {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0px 20px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+label {
+    margin-right: 5px;
+}
+
+.profile-content, .types-habilities-content, .stats-content {
+    display: inline-block;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    text-transform: capitalize;
+}
+
+.details-container h2{
+    margin: 5px 0px;
+}
+
+.profile-content img {
+    width: 320px;
+}
+
+.stats-content, .types-habilities-content {
+    border: 1px solid #ccc;
+    width: 280px;
+    height: 280px;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 320px;
+    max-height: 320px;
+}
+
+.stats-content:hover, .types-habilities-content:hover {
+    border: 1px solid #222222;
+    transition: 0.4s;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.pokemon-types-container {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.heart-icon-container {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}

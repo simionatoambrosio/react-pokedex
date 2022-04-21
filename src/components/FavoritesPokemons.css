@@ -1,0 +1,10 @@
+.any-favorite-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.any-favorite-container img {
+    width: 320px;
+}

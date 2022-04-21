@@ -4,10 +4,30 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import ErrorPage from './Pages/ErrorPage';
+import Favorites from './Pages/Favorites';
+import Navbar from './components/Navbar';
+
+import { FavoriteProvider } from './contexts/FavoritesContext'
+
+import updateFavoritePokemons from './App'
+import PokemonDetails from './Pages/PokemonDetails';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/details/:id" element={<PokemonDetails />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+    </Router>
   </React.StrictMode>
 );
 
