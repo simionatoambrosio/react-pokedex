@@ -6,6 +6,14 @@ body {
     text-transform: capitalize;
     text-align: center;
     margin: 0px 20px;
+    grid-area: profile-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.habilities-content {
+    grid-area: profile-content;
 }
 
 p {
@@ -16,16 +24,21 @@ label {
     margin-right: 5px;
 }
 
-.profile-content, .types-habilities-content, .stats-content {
-    display: inline-block;
+.profile-content, .habilities-content, .stats-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .details-container {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items:center;
-    justify-content:center;
+    justify-content:center; */
+    display: grid;
+    grid-template-areas: "habilities-content profile-content stats-content";
     text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
 }
 
 .details-container h2{
@@ -33,20 +46,20 @@ label {
 }
 
 .profile-content img {
-    width: 320px;
+    width: 300px;
 }
 
-.stats-content, .types-habilities-content {
+.stats-content, .habilities-content {
     border: 1px solid #ccc;
     width: 280px;
     height: 280px;
     border-radius: 10px;
     padding: 20px;
-    max-width: 320px;
-    max-height: 320px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
-.stats-content:hover, .types-habilities-content:hover {
+.stats-content:hover, .habilities-content:hover {
     border: 1px solid #222222;
     transition: 0.4s;
     box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
@@ -55,12 +68,37 @@ label {
 .pokemon-types-container {
     margin-top: 5px;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 1em;
+}
+
+.habilities-content {
+    grid-area: habilities-content;
+    align-items: right;
 }
 
 .heart-icon-container {
     margin-top: 1em;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px){
+    .details-container {
+        display: grid;
+        grid-template-areas:
+        "profile-content"
+        "stats-content"
+        "habilities-content"
+        ;
+    }
+
+    .profile-content {
+        margin: 0px;
+    }
+
+    .stats-content, .habilities-content {
+        margin-top: 1em;
+    }
 }

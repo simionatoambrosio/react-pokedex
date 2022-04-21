@@ -22,7 +22,7 @@ function Details(props) {
     return (
         <div className='details-container'>
 
-            <div className='types-habilities-content'>
+            <div className='habilities-content'>
                 <h2>Abilities</h2>
                 <div>
                     {pokemon.abilities && pokemon.abilities.map((element, idx) => {
