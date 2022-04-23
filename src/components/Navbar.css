@@ -30,6 +30,7 @@ a {
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
+  margin: 1em;
 }
 
 .favorites-container:hover {
@@ -42,3 +43,11 @@ a {
   background-color: #eb4d44;
 }
 
+.links-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.hidden-answer {
+  text-transform: capitalize;
+}

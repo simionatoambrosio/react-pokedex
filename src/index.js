@@ -14,6 +14,7 @@ import { FavoriteProvider } from './contexts/FavoritesContext'
 
 import updateFavoritePokemons from './App'
 import PokemonDetails from './Pages/PokemonDetails';
+import WhoIsThatPokemon from './Pages/WhoIsThatPokemon';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
           <Route path='/' element={<App />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/details/:id" element={<PokemonDetails />} />
+          <Route path="/whoisthatpokemon" element={<WhoIsThatPokemon />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
     </Router>

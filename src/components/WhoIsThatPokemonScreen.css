@@ -1,0 +1,108 @@
+.pokemon-image {
+    width: 260px;
+    /* margin-left: 16em; */
+    pointer-events: none;
+    user-select: none;
+}
+
+.header h1,h2 {
+    text-align: center;
+}
+
+.header h2 {
+    text-transform: capitalize;
+}
+
+.pokemon-silhouette {
+    filter: brightness(0);
+}
+
+.pokemon-reveal img {
+    transition: 0.6s;
+    filter: brightness(100);
+}
+
+.pokemon-image-container {
+    /* background-image: url(../assets/whoisthatpokemonbackground.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.button-colum {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container button {
+    text-transform: capitalize;
+    background-color: #0e6fff;
+    border: none;
+    border-radius: 10px;
+    max-height: 36px;
+    color: white;
+    padding: 10px 75px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: solid 1px #0e6fff;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.button-container button:hover {
+    background-color: #0e6f9f;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.play-again-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-play-again {
+    text-transform: capitalize;
+    background-color: #eb4d44;
+    border: none;
+    border-radius: 10px;
+    max-height: 36px;
+    color: white;
+    padding: 10px 25px;
+    /* border: solid 1px #0e6fff; */
+    cursor: pointer;
+    margin: 3px;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score {
+    background-color: #eb4d44;
+    color: white;
+    width: 150px;
+    height: 35px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-container h3 {
+    color: white;
+}

@@ -13,6 +13,7 @@ import Favorites from './Pages/Favorites'
 import PokemonDetails from './Pages/PokemonDetails'
 import Home from './Pages/Home';
 import Footer from './components/Footer';
+import WhoIsThatPokemon from './Pages/WhoIsThatPokemon';
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -111,6 +112,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/details/:id" element={<PokemonDetails />} />
+          <Route path="/whoisthatpokemon" element={<WhoIsThatPokemon />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

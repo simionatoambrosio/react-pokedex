@@ -43,8 +43,8 @@ const Pokedex = (props) => {
             
             {loading ? (
                 <div>
-                    <p>Buscando na Pokedex...</p>
-                    <img src={loadingAnimation} alt="loading gif"></img>
+                    <p>Looking into Pokedex...</p>
+                    <img className="loading-gif" src={loadingAnimation} alt="loading gif"></img>
                 </div>)
                 :
                 <div className="pokedex-grid">

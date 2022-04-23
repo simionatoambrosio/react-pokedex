@@ -19,13 +19,20 @@ const Navbar = () => {
                     </img>
                 </Link>
             </div>
-            <Link to="/favorites">
-                <div className='favorites-container'>
-                    {/* <FavoriteProvider value={{ favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemons }}> */}
+            <div className='links-container'>
+                <Link to="/favorites">
+                    <div className='favorites-container'>
+                        {/* <FavoriteProvider value={{ favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemons }}> */}
                         💖 <strong>{favoritePokemons.length} Favorites</strong>
-                    {/* </FavoriteProvider> */}
-                </div>
-            </Link>
+                        {/* </FavoriteProvider> */}
+                    </div>
+                </Link>
+                <Link to="/whoisthatpokemon">
+                    <div className='favorites-container'>
+                        <strong>Who is that Pokemon?</strong>
+                    </div>
+                </Link>
+            </div>
         </nav>
     )
 }
