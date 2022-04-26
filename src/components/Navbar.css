@@ -48,6 +48,9 @@ a {
   flex-direction: row-reverse;
 }
 
-.hidden-answer {
-  text-transform: capitalize;
+@media screen and (min-width: 320px) and (max-width: 1023px){
+  .navbar-img {
+    width: 80px;
+    cursor: pointer;
+  }
 }

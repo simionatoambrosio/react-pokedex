@@ -11,7 +11,7 @@ function WhoIsThatPokemonScreen() {
     const [answerStatus, setAnswerStatus] = useState(null)
     const [timesPlayed, setTimesPlayed] = useState(1)
     const [score, setScore] = useState(0)
-    // const [showAnswer, setShowAnser] = useState(false)
+    const [showAnswer, setShowAnser] = useState('')
 
     let imageReveal = 'pokemon-silhouette'
     const getRandomPokemon = async () => {
@@ -66,7 +66,8 @@ function WhoIsThatPokemonScreen() {
             console.log('ERRROU!')
             setAnswerStatus('Errou!')
         }
-
+        setAnswer('')
+        setShowAnser(answer)
         imageReveal = 'pokemon-reveal'
         setImageStatus(imageReveal)
     }
@@ -76,8 +77,9 @@ function WhoIsThatPokemonScreen() {
 
     const playAgain = async (e) => {
         setTimesPlayed(timesPlayed + 1)
-        setAnswer('')
         setAnswerStatus(null)
+        setShowAnser('')
+        // setShowAnser('')
         // setShowAnser(true)
     }
 
@@ -116,10 +118,9 @@ function WhoIsThatPokemonScreen() {
             {/* <div className='answer-container'>
                 {answerStatus}
             </div> */}
-            <h2 className='hidden-answer'>{answerStatus != null && answer}</h2>
-            {(answerStatus != null) ? (<div className='play-again-container'>
+            <h2 className='hidden-answer'>{showAnswer !== '' && showAnswer}</h2>
+            {(showAnswer != null) ? (<div className='play-again-container'>
                 <button onClick={playAgain} className="button-play-again">Play Again</button>
-                { }
             </div>) : (<div></div>)}
 
 
