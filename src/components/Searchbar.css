@@ -40,6 +40,7 @@
 .autoContainer {
     margin-top: -3px;
     border: 1px solid #ccc;
+    position: fixed;
 }
 
 .option {
